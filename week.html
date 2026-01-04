@@ -5,7 +5,7 @@
 <title>Select Day</title>
 
 <style>
-/* Updated Home Button: Moved to Left */
+/*Home Button....................................................................*/
 .homeBtn{
   position:fixed;
   top:12px;
@@ -25,7 +25,7 @@
   z-index:100;
 }
 
-/* New Floating Arrow Button: Placed on Right */
+/* back button.............................................................................. */
 .arrowBtn{
   position:fixed;
   top:12px;
@@ -141,7 +141,7 @@ body{
   color:#8fb6d8;
   opacity:0.9;
 }
-/* Removed .back styling */
+
 </style>
 </head>
 
@@ -176,7 +176,7 @@ const sec = params.get("sec");
 
 document.getElementById("secTitle").innerText = sec;
 
-/* DAY CLICK */
+
 document.querySelectorAll(".day").forEach(btn=>{
   btn.onclick = ()=>{
     const day = btn.getAttribute("data-day");
@@ -208,4 +208,5 @@ function goBack(){
 </script>
 
 </body>
+
 </html>
