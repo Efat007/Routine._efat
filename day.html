@@ -18,23 +18,12 @@ body{
 .page{animation:slideIn .35s ease}
 @keyframes slideIn{from{opacity:0;transform:translateX(40px)}to{opacity:1}}
 
-/* Home Button...........................................................*/
 .homeBtn{
-  position:fixed;top:12px;left:12px;
-  width:45px;height:45px;border-radius:50%;
-  background:#00c6ff;display:flex;align-items:center;justify-content:center;
-  font-size:22px;color:white;text-decoration:none;
-  box-shadow:0 0 12px rgba(0,198,255,.8),0 6px 18px rgba(0,0,0,.8);z-index:100;
-}
-
-/* back button.......................................................... */
-.arrowBtn{
   position:fixed;top:12px;right:12px;
   width:45px;height:45px;border-radius:50%;
   background:#00c6ff;display:flex;align-items:center;justify-content:center;
   font-size:22px;color:white;text-decoration:none;
   box-shadow:0 0 12px rgba(0,198,255,.8),0 6px 18px rgba(0,0,0,.8);z-index:100;
-  border:none;cursor:pointer;
 }
 
 .logo{
@@ -141,13 +130,23 @@ h2{
   font-size:16px;
 }
 
-
+.back{
+  display:block;
+  width:80%;
+  margin:40px auto 80px;
+  padding:16px;
+  background:#1e88ff;
+  color:white;
+  text-decoration:none;
+  border-radius:30px;
+  font-size:18px;
+  text-align:center;
+}
 </style>
 </head>
 
 <body>
 <a href="index.html" class="homeBtn">🏠</a>
-<button onclick="goBack()" class="arrowBtn">➜</button>
 
 <div class="page">
 <img src="cuet.png" class="logo">
@@ -168,6 +167,7 @@ h2{
   <div id="labs"></div>
 </div>
 
+<a class="back" href="javascript:goBack()">⬅ Back</a>
 </div>
 
 <script>
@@ -190,7 +190,7 @@ const roomMap={
   mon:{A:"3108",B:"3109",C:"3110"},
   tue:{A:"3002(A)",B:"3002(B)",C:"2105"},
   wed:{A:"3203",B:"3208",C:"2309"},
-  thu:{A:"2305",B:"2307",C:"2308"}
+  thu:{A:"2305",B:"2308",C:"2307"}
 };
 
 document.getElementById("roomTitle").innerText = roomMap[day]?.[group] ? "Room: " + roomMap[day][group] : "";
@@ -217,7 +217,7 @@ const routine = {
 "A2":{"sun":[{sub:"EEE-124",time:"08:10"},{sub:"CHEM-122",time:"14:30"}],"mon":[{sub:"HUM-123",time:"09:00"},{sub:"EEE-123",time:"09:50"},{sub:"HUM-124",time:"14:30"}],"tue":[{sub:"HUM-123",time:"09:00"},{sub:"MATH-125",time:"09:50"},{sub:"CHEM-121",time:"11:00"},{sub:"EEE-123",time:"11:50"},{sub:"EEE-121",time:"12:40"},{sub:"EEE-122",time:"14:30"}],"wed":[{sub:"EEE-121",time:"09:00"},{sub:"MATH-125",time:"09:50"},{sub:"CHEM-121",time:"11:00"},{sub:"HUM-123",time:"11:50"},{sub:"EEE-123",time:"12:40"},{sub:"ME-122",time:"14:30"}],"thu":[{sub:"CHEM-121",time:"09:00"},{sub:"MATH-125",time:"09:50"},{sub:"EEE-121",time:"11:00"}]},
 "B1":{"sun":[{sub:"EEE-122",time:"08:10"},{sub:"CHEM-122",time:"11:00"}],"mon":[{sub:"EEE-123",time:"09:00"},{sub:"HUM-123",time:"09:50"},{sub:"ME-122",time:"14:30"}],"tue":[{sub:"MATH-125",time:"09:00"},{sub:"HUM-123",time:"09:50"},{sub:"EEE-121",time:"11:00"},{sub:"CHEM-121",time:"11:50"},{sub:"EEE-123",time:"12:40"}],"wed":[{sub:"MATH-125",time:"09:00"},{sub:"CHEM-121",time:"09:50"},{sub:"HUM-123",time:"11:00"},{sub:"EEE-123",time:"11:50"},{sub:"EEE-121",time:"12:40"},{sub:"HUM-124",time:"14:30"}],"thu":[{sub:"EEE-124",time:"08:10"},{sub:"CHEM-121",time:"11:00"},{sub:"MATH-125",time:"11:50"},{sub:"EEE-121",time:"12:40"}]},
 "B2":{"sun":[{sub:"EEE-122",time:"14:30"}],"mon":[{sub:"EEE-123",time:"09:00"},{sub:"HUM-123",time:"09:50"},{sub:"ME-122",time:"14:30"},{sub:"CHEM-122",time:"11:00"}],"tue":[{sub:"MATH-125",time:"09:00"},{sub:"HUM-123",time:"09:50"},{sub:"EEE-121",time:"11:00"},{sub:"CHEM-121",time:"11:50"},{sub:"EEE-123",time:"12:40"}],"wed":[{sub:"MATH-125",time:"09:00"},{sub:"CHEM-121",time:"09:50"},{sub:"HUM-123",time:"11:00"},{sub:"EEE-123",time:"11:50"},{sub:"EEE-121",time:"12:40"},{sub:"HUM-124",time:"14:30"}],"thu":[{sub:"EEE-124",time:"08:10"},{sub:"CHEM-121",time:"11:00"},{sub:"MATH-125",time:"11:50"},{sub:"EEE-121",time:"12:40"}]},
-"C1":{"sun":[{sub:"EEE-124",time:"11:00"},{sub:"ME-122",time:"14:30"}],"mon":[{sub:"HUM-123",time:"11:00"},{sub:"EEE-123",time:"11:50"},{sub:"CHEM-122",time:"14:30"}],"tue":[{sub:"EEE-123",time:"09:00"},{sub:"EEE-121",time:"09:50"},{sub:"HUM-123",time:"11:00"},{sub:"MATH-125",time:"11:50"},{sub:"CHEM-121",time:"12:40"},{sub:"HUM-124",time:"14:30"}],"wed":[{sub:"CHEM-121",time:"09:00"},{sub:"EEE-123",time:"09:50"},{sub:"MATH-125",time:"11:00"},{sub:"EEE-121",time:"11:50"},{sub:"HUM-123",time:"12:40"},{sub:"EEE-122",time:"14:30"}],"thu":[{sub:"CHEM-121",time:"09:50"},{sub:"MATH-125",time:"11:00"},{sub:"EEE-121",time:"11:50"}]},
+"C1":{"sun":[{sub:"EEE-124",time:"11:00"},{sub:"ME-122",time:"14:30"}],"mon":[{sub:"HUM-123",time:"11:00"},{sub:"EEE-123",time:"11:50"},{sub:"CHEM-122",time:"14:30"}],"tue":[{sub:"EEE-123",time:"09:00"},{sub:"EEE-121",time:"09:50"},{sub:"HUM-123",time:"11:00"},{sub:"MATH-125",time:"11:50"},{sub:"CHEM-121",leat:"12:40"},{sub:"HUM-124",time:"14:30"}],"wed":[{sub:"CHEM-121",time:"09:00"},{sub:"EEE-123",time:"09:50"},{sub:"MATH-125",time:"11:00"},{sub:"EEE-121",time:"11:50"},{sub:"HUM-123",time:"12:40"},{sub:"EEE-122",time:"14:30"}],"thu":[{sub:"CHEM-121",time:"09:50"},{sub:"MATH-125",time:"11:00"},{sub:"EEE-121",time:"11:50"}]},
 "C2":{"sun":[{sub:"EEE-124",time:"11:00"},{sub:"ME-122",time:"14:30"}],"mon":[{sub:"HUM-123",time:"11:00"},{sub:"EEE-123",time:"11:50"},{sub:"EEE-122",time:"14:30"}],"tue":[{sub:"EEE-123",time:"09:00"},{sub:"EEE-121",time:"09:50"},{sub:"HUM-123",time:"11:00"},{sub:"MATH-125",time:"11:50"},{sub:"CHEM-121",time:"12:40"},{sub:"HUM-124",time:"14:30"}],"wed":[{sub:"CHEM-121",time:"09:00"},{sub:"EEE-123",time:"09:50"},{sub:"MATH-125",time:"11:00"},{sub:"EEE-121",time:"11:50"},{sub:"HUM-123",time:"12:40"},{sub:"CHEM-122",time:"14:30"}],"thu":[{sub:"CHEM-121",time:"09:50"},{sub:"MATH-125",time:"11:00"},{sub:"EEE-121",time:"11:50"}]}
 };
 
@@ -270,6 +270,7 @@ if (day === "fri" || day === "sat") {
         (isLab ? labs : classes).appendChild(d);
       });
 
+      // Show "No Class" or "No Lab" if the lists are empty after the loop
       if (classes.children.length === 0) {
         classes.innerHTML = `<div class="empty-msg">No Theory Classes</div>`;
       }
@@ -290,5 +291,4 @@ function toggle(card,sub){
 }
 </script>
 </body>
-
 </html>
